@@ -7,6 +7,7 @@ const { createToken, compareToken } = require("../lib/jwt");
 /*                                    LOGIN                                   */
 /* -------------------------------------------------------------------------- */
 router.post("/login", async (req, res) => {
+    return res.send(req.body)
     const { email, password } = req.body;
 
     const user = await usersModel.findOne({ email });
