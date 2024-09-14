@@ -25,7 +25,7 @@ router.post("/login", async (req, res) => {
     const token = await createToken(user._id);
 
     res.cookie("token", token, {
-        maxAge: 24 * 60 * 60 * 1000
+        sameSite:'none'
     });
 
     return res.status(200).json({ message: "user loged in" });
@@ -65,7 +65,7 @@ router.post("/register", async (req, res) => {
         const token = await createToken(user._id);
 
         res.cookie("token", token, {
-            maxAge: 24 * 60 * 60 * 1000
+            sameSite:'none'
         });
         return res.status(200).json({ message: "User created" });
     } catch (err) {
