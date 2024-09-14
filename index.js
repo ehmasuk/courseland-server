@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 require("dotenv").config();
 const cors = require("cors");
-var cookieParser = require('cookie-parser')
+var cookieParser = require("cookie-parser");
 
 const coursesRoute = require("./routes/coursesRoute");
 const usersRoute = require("./routes/usersRoute");
@@ -18,10 +18,15 @@ app.listen(process.env.PORT, () => {
 connectDb();
 
 // middlewares
-app.use(cors());
+app.use(
+    cors({
+        origin: true,
+        credentials: true,
+    })
+);
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(cookieParser())
+app.use(cookieParser());
 
 // routes
 app.use("/api/courses", coursesRoute);
