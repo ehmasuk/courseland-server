@@ -26,7 +26,7 @@ router.post("/login", async (req, res) => {
 
     res.cookie("token", token, {
         sameSite:'none',
-        secure:false,
+        secure:true,
     });
 
     return res.status(200).json({ message: "user loged in" });
@@ -67,7 +67,7 @@ router.post("/register", async (req, res) => {
 
         res.cookie("token", token, {
             sameSite:'none',
-            secure:false,
+            secure:true,
         });
         return res.status(200).json({ message: "User created" });
     } catch (err) {
