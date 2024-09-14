@@ -20,7 +20,7 @@ connectDb();
 // middlewares
 app.use(
     cors({
-        origin: true,
+        origin: "https://courseland.vercel.app",
         credentials: true,
     })
 );
