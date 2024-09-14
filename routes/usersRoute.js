@@ -24,7 +24,7 @@ router.post("/login", async (req, res) => {
 
     const token = await createToken(user._id);
 
-    res.cookie("token", token,{sameSite: 'none', secure: true });
+    res.cookie("token", token);
 
     return res.status(200).json({ message: "user loged in" });
 });
@@ -62,7 +62,7 @@ router.post("/register", async (req, res) => {
 
         const token = await createToken(user._id);
 
-        res.cookie("token", token,{sameSite: 'none', secure: true });
+        res.cookie("token", token);
         return res.status(200).json({ message: "User created" });
     } catch (err) {
         console.log(err);
